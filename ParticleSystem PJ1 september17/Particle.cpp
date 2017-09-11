@@ -30,9 +30,12 @@ typename Particle::Vector3D Particle::getAcceleration() const noexcept
 }
 
 void Particle::update() noexcept
-{
-	speed = speed + acceleration;
-	position = position + speed;
+{/*
+	Vector3D tmp = speed = speed + acceleration;
+	position = tmp;
+	acceleration = Vector3D();*/
+	speed += acceleration;
+	position += speed;
 	acceleration = Vector3D();
 }
 
@@ -43,13 +46,9 @@ void Particle::addForce(const Vector3D& forceVector) noexcept
 
 void Particle::print(std::ostream& stream) const noexcept
 {
-	stream << "Mass: " << mass << std::endl;
-	//stream << "Position: " << position << std::endl;
-	//stream << "Speed: " << speed << std::endl;
-	//TODO: see why it doesn't work
-	//dumber way, but works tho, using freaking getters of class Particle::Vector3D, no need for it, but this way it doesn't compile. 
-	stream << "(" << position.getX() << ", " << position.getY() << ", " << position.getZ() << ") " << std::endl;
-	stream << "(" << speed.getX() << ", " << speed.getY() << ", " << speed.getZ() << ") " << std::endl;
+	stream << "Mass: " << getMass() << "\n";
+	stream << "Position: " << position << std::endl;
+	stream << "Speed: " << speed << std::endl;
 }
 
 typename Particle::Vector3D Particle::Vector3D::applyOperation(const Vector3D & other, std::function<double(double, double)> operation) const noexcept
@@ -95,13 +94,13 @@ double Particle::Vector3D::getY() const noexcept
 {
 	return z;
 }
-std::ostream& operator<<(const Particle::Vector3D object, std::ostream& stream) noexcept
+std::ostream& operator<<(std::ostream& stream, const Particle::Vector3D object) noexcept
 {
-	stream << "(" << object.x << object.y << object.z << ") " << std::endl;
+	stream << "(" << object.x << ", "<< object.y << ", " << object.z << ") " << std::endl;
 	return stream;
 }
 
-std::ostream & operator<<(const Particle& object, std::ostream& stream) noexcept
+std::ostream& operator<<(std::ostream& stream, const Particle& object) noexcept
 {
 	object.print(stream);
 	return stream;

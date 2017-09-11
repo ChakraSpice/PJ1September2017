@@ -113,11 +113,17 @@
   <ItemGroup>
     <ClInclude Include="Interactor.h" />
     <ClInclude Include="Particle.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Interactor.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="Source.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\Documents\ViberDownloads\0-02-05-6434e369656b450936f61112a206282d25217bfc1af9fd8941865daba8793b7b_full.jpg" />
+    <Image Include="..\..\..\..\Documents\ViberDownloads\0-02-05-682c35704f745539ef09cff6d47930acf4e35af15779bf82195694e9e037f51d_full.jpg" />
+    <Image Include="..\..\..\..\Documents\ViberDownloads\0-02-05-959d7417eafc4d49c27ea70b826abe768671ce02086356cd73194d556d011623_full.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

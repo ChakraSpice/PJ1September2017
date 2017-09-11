@@ -13,12 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource Files\Photos">
+      <UniqueIdentifier>{c8370296-c19d-4fc1-ab03-857541ed82ec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Particle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Interactor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -32,5 +38,16 @@
     <ClCompile Include="Interactor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\Documents\ViberDownloads\0-02-05-682c35704f745539ef09cff6d47930acf4e35af15779bf82195694e9e037f51d_full.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Documents\ViberDownloads\0-02-05-959d7417eafc4d49c27ea70b826abe768671ce02086356cd73194d556d011623_full.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Documents\ViberDownloads\0-02-05-6434e369656b450936f61112a206282d25217bfc1af9fd8941865daba8793b7b_full.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
