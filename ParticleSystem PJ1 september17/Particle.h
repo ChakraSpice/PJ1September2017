@@ -18,7 +18,7 @@ class Particle
 		double operator!() const noexcept;
 		Vector3D operator+(const Vector3D&) const noexcept;
 		Vector3D operator-(const Vector3D&) const noexcept;
-		Vector3D operator/(const long double) const noexcept;//assume the user is not an idiot, won't divide by zero, TODO: implement zero division exception
+		Vector3D operator/(const long double) const noexcept;//assume the user is not an idiot, won't divide by zero, TODO: implement divison by zero exception
 		Vector3D operator*(const long double) const noexcept;
 		Vector3D operator+=(const Vector3D& other) noexcept
 		{
