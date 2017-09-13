@@ -9,16 +9,19 @@ public:
 	//methods
 	virtual void operator*(Particle& other) noexcept override //this operation is commutative  
 	{
-		Vector3D distanceVector = (this->getPosition()) - other.getPosition();
-		long double distance = !distanceVector;
-		distanceVector = distanceVector / distance; //normalization
-		long double scaling = (scalar * other.getMass() * (this->getMass())) / (distance*distance);
-		Vector3D force = distanceVector * scaling;
-		this->addForce(force);
-		this->update();
-		force = force * (-1);
-		other.addForce(force);
-		other.update();
+		if (this != &other)
+		{ 
+			Vector3D distanceVector = (this->getPosition()) - other.getPosition();
+			long double distance = !distanceVector;
+			distanceVector = distanceVector / distance; //normalization
+			long double scaling = (scalar * other.getMass() * (this->getMass())) / (distance*distance);
+			Vector3D force = distanceVector * scaling;
+			this->addForce(force);
+			this->update();
+			force = force * (-1);
+			other.addForce(force);
+			other.update();
+		}	
 	}
 };
 

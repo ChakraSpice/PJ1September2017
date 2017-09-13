@@ -23,4 +23,5 @@ int main()
 			file << j + 1 << ". particle: " << (*(arr[j])) << std::endl;
 		}
 	}
+	file.close();
 }

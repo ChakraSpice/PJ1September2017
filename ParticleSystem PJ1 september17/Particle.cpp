@@ -30,7 +30,7 @@ typename Particle::Vector3D Particle::getAcceleration() const noexcept
 }
 
 void Particle::update() noexcept
-{/*
+{/* bez +=
 	Vector3D tmp = speed = speed + acceleration;
 	position = tmp;
 	acceleration = Vector3D();*/
@@ -66,11 +66,15 @@ double Particle::Vector3D::operator!() const noexcept
 typename Particle::Vector3D Particle::Vector3D::operator+(const Vector3D &other) const noexcept
 {
 	return Particle::Vector3D::applyOperation(other, [](double a, double b) { return a + b; });
+	//drugi nacin
+	// return Particle::Vector3D(x+other.x, y + other.y, z+other.z);
 }
 
 typename Particle::Vector3D Particle::Vector3D::operator-(const Vector3D & other) const noexcept
 {
 	return Particle::Vector3D::applyOperation(other, [](double a, double b) { return a - b; });
+	//drugi nacin 
+	//return Particle::Vetor3D(x-other.x, y-other.y, z-other.z);
 }
 
 typename Particle::Vector3D Particle::Vector3D::operator/(const long double number) const noexcept

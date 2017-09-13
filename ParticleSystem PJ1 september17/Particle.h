@@ -11,7 +11,7 @@ class Particle
 		double y;
 		double z;
 		Vector3D applyOperation(const Vector3D&, std::function<double(double, double)>) const noexcept;
-		friend Particle;
+		friend Particle; //proglasiti za prijateljsku, lijepo je, ali mozda redundatno
 	public:
 		Vector3D(double x = 0, double y = 0, double z = 0) noexcept;
 		//Vector3D(const Vector3D& other) : x(other.x), y(other.y), z(other.z) {};
@@ -26,7 +26,8 @@ class Particle
 			*this = tmp;
 			return *this;
 		}
-		friend std::ostream& operator<<(std::ostream&, const Particle::Vector3D) noexcept; //trouble
+		//methods
+		friend std::ostream& operator<<(std::ostream&, const Particle::Vector3D) noexcept; 
 		//getters
 		double getX() const noexcept;
 		double getY() const noexcept;
@@ -43,12 +44,15 @@ class Particle
 
 	//methods
 	void update() noexcept;
-	virtual void operator*(Particle&) noexcept = 0; //1.2 Impossible to instantiate, the class has a purely virtual function
+	virtual void operator*(Particle&) noexcept = 0; //1.2 Impossible to instantiate, the class has a purely virtual function 
+    //nemoguce instancirati klasu, klasa je apstraktna (ima barem jednu cisto virtuelnu metodu
 
 	//1.3 The operator*(...) is not so good, as it could have been if it were static, 
 	//but it couldn't be virtual then. It is used on two objects, and changes both of them
+	//bilo bi ispravnije koristiti metodu, staticku, mijenja dva objekta, i ne zavisi
+	//od jednog posebnog objekta
 	friend std::ostream& operator<<(std::ostream&, const Particle&) noexcept;
-	virtual void addForce(const Vector3D&) noexcept; //1.1 metoda treba biti privatna, tj. protected - zasticena, jer se samo iz metoda poziva, bug??
+	virtual void addForce(const Vector3D&) noexcept; //1.1 metoda treba biti privatna, tj. protected - zasticena, jer se samo iz metoda poziva, bug kod VS??
 protected:
 	long double mass;
 	Vector3D position;
@@ -58,3 +62,5 @@ protected:
 	virtual void print(std::ostream&) const noexcept;
 };
 
+// moze se i ovo
+//using Vektor3 = typename Particle::Vector3D;
