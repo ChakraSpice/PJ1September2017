@@ -2,7 +2,7 @@
 #include "Particle.h"
 class Interactor : public Particle
 {
-	const long double scalar = 666e3; //self-defined constant, have some fun
+	const static long double scalar = 666e3; //self-defined constant, have some fun
 public:
 	Interactor(Vector3D position, Vector3D speed) noexcept;
 	virtual ~Interactor();
